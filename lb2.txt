@@ -1,0 +1,23 @@
+% Факты для чисел и их текстовых представлений
+number_word(0, 'ноль').
+number_word(1, 'один').
+number_word(2, 'два').
+number_word(3, 'три').
+number_word(4, 'четыре').
+number_word(5, 'пять').
+number_word(6, 'шесть').
+number_word(7, 'семь').
+number_word(8, 'восемь').
+number_word(9, 'девять').
+
+% Правило для перевода списка цифр в список соответствующих слов
+translate([], []).
+translate([H1|T1], [H2|T2]) :-
+    number_word(H1, H2),
+    translate(T1, T2).
+
+?- translate([3, 4, 8], ['три', 'четыре', 'восемь']).
+
+?- translate([1, 2, 3], X).
+
+?- translate(X, ['семь', 'шесть', 'пять']).
